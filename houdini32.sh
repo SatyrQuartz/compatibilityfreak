@@ -1,0 +1,1 @@
+LD_LIBRARY_PATH=/emuroot/arm-linux-gnueabihf/usr/lib/arm-linux-gnueabihf/:/emuroot/arm-linux-gnueabihf/usr/lib/arm-linux-gnueabihf/pulseaudio/ /usr/libexec/houdini $@
