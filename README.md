@@ -23,7 +23,11 @@ Installers
 
 ### install_houdini.sh
 
-Installs Houdnini on amd64 or i386 PC
+Installs Houdini on amd64 or i386 PC
+
+### uninstall_houdini.sh
+
+Removes Houdini on amd64 or i386 PC
 
 Sources
 =============================
