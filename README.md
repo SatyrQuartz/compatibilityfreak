@@ -21,9 +21,15 @@ Installers
 	linux-s390x (Debian)
 	linux-x86_64 (Debian)
 
-### install_houdini.sh
+### install_houdini32.sh
 
-Installs Houdini on amd64 or i386 PC
+Installs Houdini (32-bit ARM Emulator) on amd64 or i386 PC
+
+
+### install_houdini64.sh
+
+Installs Houdini (64-bit ARM Emulator) on amd64 or i386 PC
+
 
 ### uninstall_houdini.sh
 
