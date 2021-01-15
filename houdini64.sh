@@ -1,0 +1,1 @@
+LD_LIBRARY_PATH=/emuroot/aarch64-linux-gnu/usr/lib/aarch64-linux-gnu/:/emuroot/aarch64-linux-gnu/usr/lib/aarch64-linux-gnu/pulseaudio/ /usr/libexec/houdini64 $@
