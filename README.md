@@ -23,7 +23,7 @@ Installers
 
 ### install_houdini32.sh
 
-Installs Houdini (32-bit ARM Emulator) on amd64 PC
+Installs Houdini (32-bit ARM Emulator) on i386 or amd64 PC
 
 
 ### install_houdini64.sh
