@@ -21,7 +21,8 @@ Installers
 	linux-s390x (Debian)
 	linux-x86_64 (Debian)
 
-**NOTE: Requires qemu-user-static and debootstrap**
+**NOTE: Requires qemu-user-static and debootstrap (qemu i386 installation is broken because of bug "Failure trying to run:  /sbin/ldconfig")**
+
 
 ### install_houdini32.sh
 
@@ -37,7 +38,7 @@ Installs Houdini (64-bit ARM Emulator) on amd64 PC
 
 Installs Box86 (x86 Emulator) on ARM 32-bit or ARM 64-bit PC
 
-**NOTE: Requires armhf root on ARM 64-bit PCs**
+**NOTE: Requires armhf root and libc6:armhf package on ARM 64-bit PCs**
 
 
 ### uninstall_houdini.sh
