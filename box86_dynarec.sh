@@ -1,0 +1,1 @@
+BOX86_DYNAREC=1 BOX86_LD_LIBRARY_PATH='/emuroot/i386-linux-gnu/usr/lib/i386-linux-gnu/' box86 $@
