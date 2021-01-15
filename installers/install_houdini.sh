@@ -59,7 +59,7 @@ if [ -f /emuroot/arm-linux-gnueabihf/usr/lib/arm-linux-gnueabihf/ld-linux-armhf.
     rm -rf squashfs-root
     
     patch_strings_in_file arm64_x64/houdini64 "/system/lib64/arm64/cpuinfo" "/usr/lib/houdini/cpu64"
-    patch_strings_in_file arm64_x64/houdini64 "/system/lib64/arm64/linker64" "/lib/ld-linux-aarch64.so.1"
+    patch_strings_in_file arm64_x64/houdini64 "/system/lib64/arm64/linker64" "/usr/lib/houdini/ld64.so"
     patch_strings_in_file arm64_x64/houdini64 "/system/lib64/arm64/libaeabi_map.so" ""
     
     patch_strings_in_file armv7_x64/houdini "/system/lib/arm/cpuinfo" "/usr/lib/houdini/cpu32"
@@ -74,7 +74,8 @@ if [ -f /emuroot/arm-linux-gnueabihf/usr/lib/arm-linux-gnueabihf/ld-linux-armhf.
     install -m 644 arm64_x64/cpuinfo /usr/lib/houdini/cpu64
     install -m 644 armv7_x64/cpuinfo /usr/lib/houdini/cpu32
     ln -s /emuroot/arm-linux-gnueabihf/lib/ld-linux-armhf.so.3 /usr/lib/houdini/ld.so  
-
+    ln -s /emuroot/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1 /usr/lib/houdini/ld64.so
+    
     rm -rf armv7_x64
     rm -rf arm64_x64
     rm houdini-6_y.sfs
@@ -82,5 +83,5 @@ if [ -f /emuroot/arm-linux-gnueabihf/usr/lib/arm-linux-gnueabihf/ld-linux-armhf.
 
     update-binfmts --install houdini /usr/libexec/houdini --magic "\x7f\x45\x4c\x46\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00" --mask "\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff"
 else 
-    echo please install armhf emuroot first
+    echo please install armhf and arm64 emuroot first
 fi
