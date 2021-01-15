@@ -40,7 +40,7 @@ function patch_strings_in_file() {
 	fi
 }
 
-if [ -f /emuroot/arm-linux-gnueabihf/usr/lib/arm-linux-gnueabihf/ld-linux-armhf.so.3 ]; then
+if [ -f /emuroot/arm-linux-gnueabihf/usr/lib/arm-linux-gnueabihf/ld-linux-armhf.so.3 && -f /emuroot/aarch64-linux-gnu/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1 ]; then
     mkdir arm64_x64
     mkdir armv7_x64
     
