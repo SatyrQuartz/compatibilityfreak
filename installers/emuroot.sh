@@ -235,9 +235,9 @@ emuroot-install () {
 start-emuroot-shell () {
 	if [ -f /usr/bin/groot ]; then
 		cd $StartEmuRootShell_RootPath
-    	groot
+    		groot
 	else 
-    	chroot $StartEmuRootShell_RootPath
+    		chroot $StartEmuRootShell_RootPath
 	fi
 }
 
