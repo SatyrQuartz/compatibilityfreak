@@ -116,20 +116,17 @@ function startarchmenu {
 }
 
 function optionselect {
-	SelectionOption=$(whiptail --menu "Select Action" 20 60 10 \
- 	    "Install" "Install RootFS" \
- 	    "StartShell" "Start Bash Shell" \
+	SelectionOption=$(whiptail --menu "Confirm?" 20 60 10 \
+ 	    "Yes" "Install RootFS" \
+ 	    "No" "Start Bash Shell" \
  	    3>&1 1>&2 2>&3)
 	if [ -z "$SelectionOption" ]
 	then
     	checkifinstalled
 		startarchmenu
 	else
-		if [[ $SelectionOption == "Install" ]]; then
+		if [[ $SelectionOption == "Yes" ]]; then
 			emuroot-install
-		fi
-		if [[ $SelectionOption == "StartShell" ]]; then
-			setup-vars-for-emuroot-shell
 		fi
     	checkifinstalled
 		startarchmenu
@@ -229,66 +226,6 @@ emuroot-install () {
 		DebianEmuRootInstaller_RootPath="/emuroot/x86_64-linux-gnu"
 		DebianEmuRootInstaller_CPU=amd64
 		debian-install
-	fi
-}
-
-start-emuroot-shell () {
-	if [ -f /usr/bin/groot ]; then
-		cd $StartEmuRootShell_RootPath
-    		groot
-	else 
-    		chroot $StartEmuRootShell_RootPath
-	fi
-}
-
-setup-vars-for-emuroot-shell () {
-	if [[ $SelectedArch == "linux-arm64" ]]; then
-		StartEmuRootShell_RootPath="/emuroot/aarch64-linux-gnu"
-		start-emuroot-shell
-	fi
-	if [[ $SelectedArch == "linux-armel" ]]; then
-		StartEmuRootShell_RootPath="/emuroot/arm-linux-gnueabi"
-		start-emuroot-shell
-	fi
-	if [[ $SelectedArch == "linux-armhf" ]]; then
-		StartEmuRootShell_RootPath="/emuroot/arm-linux-gnueabihf"
-		start-emuroot-shell
-	fi
-	if [[ $SelectedArch == "linux-i386" ]]; then
-		StartEmuRootShell_RootPath="/emuroot/i386-linux-gnu"
-		start-emuroot-shell
-	fi
-	if [[ $SelectedArch == "linux-mips" ]]; then
-		StartEmuRootShell_RootPath="/emuroot/mips-linux-gnu"
-		start-emuroot-shell
-	fi
-	if [[ $SelectedArch == "linux-mips64el" ]]; then
-		StartEmuRootShell_RootPath="/emuroot/mips64el-linux-gnuabi64"
-		start-emuroot-shell
-	fi
-	if [[ $SelectedArch == "linux-mipsel" ]]; then
-		StartEmuRootShell_RootPath="/emuroot/mipsel-linux-gnu"
-		start-emuroot-shell
-	fi
-	if [[ $SelectedArch == "linux-powerpc" ]]; then
-		StartEmuRootShell_RootPath="/emuroot/powerpc-linux-gnu/"
-		start-emuroot-shell
-	fi
-	if [[ $SelectedArch == "linux-powerpc64" ]]; then
-		StartEmuRootShell_RootPath="/emuroot/powerpc64-linux-gnu/"
-		start-emuroot-shell
-	fi
-	if [[ $SelectedArch == "linux-powerpc64le" ]]; then
-		StartEmuRootShell_RootPath="/emuroot/powerpc64le-linux-gnu"
-		start-emuroot-shell
-	fi
-	if [[ $SelectedArch == "linux-s390x" ]]; then
-		StartEmuRootShell_RootPath="/emuroot/s390x-linux-gnu"
-		start-emuroot-shell
-	fi
-	if [[ $SelectedArch == "linux-x86_64" ]]; then
-		StartEmuRootShell_RootPath="/emuroot/x86_64-linux-gnu"
-		start-emuroot-shell
 	fi
 }
 
