@@ -118,7 +118,7 @@ function startarchmenu {
 function optionselect {
 	SelectionOption=$(whiptail --menu "Confirm?" 20 60 10 \
  	    "Yes" "Install RootFS" \
- 	    "No" "Start Bash Shell" \
+ 	    "No" "Exit" \
  	    3>&1 1>&2 2>&3)
 	if [ -z "$SelectionOption" ]
 	then
