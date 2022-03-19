@@ -141,18 +141,18 @@ debian-install () {
 	mkdir /emuroot/
 	mkdir $DebianEmuRootInstaller_RootPath
 	cd $DebianEmuRootInstaller_RootPath
-	qemu-debootstrap --arch=$DebianEmuRootInstaller_CPU buster $DebianEmuRootInstaller_RootPath http://ftp.debian.org/debian
+	qemu-debootstrap --arch=$DebianEmuRootInstaller_CPU bullseye $DebianEmuRootInstaller_RootPath http://ftp.debian.org/debian
 	DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true LC_ALL=C LANGUAGE=C LANG=C chroot $DebianEmuRootInstaller_RootPath /debootstrap/debootstrap --second-stage
 
 	rm $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
-	echo 'deb http://deb.debian.org/debian buster main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
-	echo 'deb-src http://deb.debian.org/debian buster main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
-	echo 'deb http://deb.debian.org/debian-security/ buster/updates main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
-	echo 'deb-src http://deb.debian.org/debian-security/ buster/updates main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
-	echo 'deb http://deb.debian.org/debian buster-updates main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
-	echo 'deb-src http://deb.debian.org/debian buster-updates main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
-	echo 'deb http://deb.debian.org/debian buster-backports main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
-	echo 'deb-src http://deb.debian.org/debian buster-backports main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
+	echo 'deb http://deb.debian.org/debian bullseye main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
+	echo 'deb-src http://deb.debian.org/debian bullseye main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
+	echo 'deb http://deb.debian.org/debian-security/ bullseye/updates main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
+	echo 'deb-src http://deb.debian.org/debian-security/ bullseye/updates main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
+	echo 'deb http://deb.debian.org/debian bullseye-updates main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
+	echo 'deb-src http://deb.debian.org/debian bullseye-updates main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
+	echo 'deb http://deb.debian.org/debian bullseye-backports main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
+	echo 'deb-src http://deb.debian.org/debian bullseye-backports main contrib non-free' >> $DebianEmuRootInstaller_RootPath/etc/apt/sources.list
 
 	env -i TERM=xterm /usr/sbin/chroot $DebianEmuRootInstaller_RootPath /bin/su -l root -c 'apt-get update'
 	env -i TERM=xterm /usr/sbin/chroot $DebianEmuRootInstaller_RootPath /bin/su -l root -c 'apt-get install -y libsm6 libxext6 libfreetype6 libmpg123-0 sudo'
